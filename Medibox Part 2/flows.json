@@ -1,0 +1,1094 @@
+[
+    {
+        "id": "0b4df18cfed5afb0",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1fd656c7b046ab50",
+        "type": "mqtt in",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "220113V/LDR_DATA",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3c9f7185f2adb0da",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "0b79a1c438a2d57c",
+                "e1d14252dbe9e3d8",
+                "edc4126b5559194e"
+            ]
+        ]
+    },
+    {
+        "id": "0b79a1c438a2d57c",
+        "type": "ui_gauge",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "group": "ea5951efc2b0a73b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Light Intensity",
+        "label": "units",
+        "format": "{{payload}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 540,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e1d14252dbe9e3d8",
+        "type": "ui_chart",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "group": "ea5951efc2b0a73b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Light Intensity Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 560,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "edc4126b5559194e",
+        "type": "debug",
+        "z": "0b4df18cfed5afb0",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b74c6d8bb597b75f",
+        "type": "ui_slider",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "label": "LDR_Sampling_interval",
+        "tooltip": "",
+        "group": "ea5951efc2b0a73b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "ad0b864f9a2403b8",
+                "52f8c874d5c62e99"
+            ]
+        ]
+    },
+    {
+        "id": "bcee1a9db27edef5",
+        "type": "ui_slider",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "label": "LDR_Sending_interval",
+        "tooltip": "",
+        "group": "ea5951efc2b0a73b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "9cacfc35884759da",
+                "07a9fbe020428311"
+            ]
+        ]
+    },
+    {
+        "id": "ad0b864f9a2403b8",
+        "type": "mqtt out",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "220113V/reading_interval",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9f7185f2adb0da",
+        "x": 570,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9cacfc35884759da",
+        "type": "mqtt out",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "220113V/time_period",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9f7185f2adb0da",
+        "x": 560,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "60e69f545ed98b50",
+        "type": "ui_slider",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "label": "Minimum angle of the servo motor",
+        "tooltip": "",
+        "group": "e1ae60a1ee1b6161",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "120",
+        "step": 1,
+        "className": "",
+        "x": 220,
+        "y": 480,
+        "wires": [
+            [
+                "347d9a4061435bdd",
+                "02cdae5c210fa54d"
+            ]
+        ]
+    },
+    {
+        "id": "8bf92b79d15e0bde",
+        "type": "ui_slider",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "label": "Controlling factor",
+        "tooltip": "",
+        "group": "e1ae60a1ee1b6161",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1",
+        "step": "0.05",
+        "className": "",
+        "x": 170,
+        "y": 600,
+        "wires": [
+            [
+                "81ff205355f841b2",
+                "ddc44edebfa2b406"
+            ]
+        ]
+    },
+    {
+        "id": "6e7ff7c545d66f78",
+        "type": "ui_slider",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "label": "Ideal  temperature ",
+        "tooltip": "",
+        "group": "e1ae60a1ee1b6161",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "10",
+        "max": "40",
+        "step": 1,
+        "className": "",
+        "x": 170,
+        "y": 720,
+        "wires": [
+            [
+                "73e1399ad81cd62e",
+                "174fda151d1c5f26"
+            ]
+        ]
+    },
+    {
+        "id": "347d9a4061435bdd",
+        "type": "mqtt out",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "220113V/minimum_angle",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9f7185f2adb0da",
+        "x": 570,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "81ff205355f841b2",
+        "type": "mqtt out",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "220113V/controlling_factor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9f7185f2adb0da",
+        "x": 580,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "73e1399ad81cd62e",
+        "type": "mqtt out",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "220113V/ideal_temperature",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9f7185f2adb0da",
+        "x": 580,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "249e8df0e9616f92",
+        "type": "mqtt in",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "220113V/TEMP_DATA",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3c9f7185f2adb0da",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 900,
+        "wires": [
+            [
+                "fce18f47f804cd43",
+                "9c18c87670e3ae7e"
+            ]
+        ]
+    },
+    {
+        "id": "fce18f47f804cd43",
+        "type": "ui_gauge",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "group": "67bcb1af6d357c00",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 530,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "9c18c87670e3ae7e",
+        "type": "debug",
+        "z": "0b4df18cfed5afb0",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "02cdae5c210fa54d",
+        "type": "ui_text",
+        "z": "0b4df18cfed5afb0",
+        "group": "e1ae60a1ee1b6161",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Minimum angle of the servo motor",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ddc44edebfa2b406",
+        "type": "ui_text",
+        "z": "0b4df18cfed5afb0",
+        "group": "e1ae60a1ee1b6161",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ServoMotor Controlling factor",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 580,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "174fda151d1c5f26",
+        "type": "ui_text",
+        "z": "0b4df18cfed5afb0",
+        "group": "e1ae60a1ee1b6161",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Ideal temperature",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 550,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "52f8c874d5c62e99",
+        "type": "ui_text",
+        "z": "0b4df18cfed5afb0",
+        "group": "ea5951efc2b0a73b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sampling_interval",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 550,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "07a9fbe020428311",
+        "type": "ui_text",
+        "z": "0b4df18cfed5afb0",
+        "group": "ea5951efc2b0a73b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sending_Interval",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 550,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "67f577e21fdf2a7a",
+        "type": "ui_switch",
+        "z": "0b4df18cfed5afb0",
+        "name": "Main Switch",
+        "label": "switch",
+        "tooltip": "",
+        "group": "908862467dc8e85a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 410,
+        "y": 1040,
+        "wires": [
+            [
+                "733e9cdefc7be7cd"
+            ]
+        ]
+    },
+    {
+        "id": "733e9cdefc7be7cd",
+        "type": "mqtt out",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "ENTC-ADMIN-MAIN-ON-OFF",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9f7185f2adb0da",
+        "x": 770,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "3423fb56d1e64e61",
+        "type": "ui_switch",
+        "z": "0b4df18cfed5afb0",
+        "name": "Schedule Switch",
+        "label": "switch",
+        "tooltip": "",
+        "group": "5f8e88bb7ffe709d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 250,
+        "y": 1220,
+        "wires": [
+            [
+                "b3f033a3975ce877"
+            ]
+        ]
+    },
+    {
+        "id": "b3f033a3975ce877",
+        "type": "change",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isScheduled",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1220,
+        "wires": [
+            [
+                "b4f2f49456df2281"
+            ]
+        ]
+    },
+    {
+        "id": "d140447b293d4af1",
+        "type": "ui_date_picker",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "label": "ON date",
+        "group": "5f8e88bb7ffe709d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 220,
+        "y": 1280,
+        "wires": [
+            [
+                "9e5d675e48bf2083"
+            ]
+        ]
+    },
+    {
+        "id": "f820afd7fd605099",
+        "type": "ui_text_input",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "5f8e88bb7ffe709d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "time",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 220,
+        "y": 1340,
+        "wires": [
+            [
+                "16b9e081af924fc8"
+            ]
+        ]
+    },
+    {
+        "id": "9e5d675e48bf2083",
+        "type": "change",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "scheduleDate",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 1280,
+        "wires": [
+            [
+                "b4f2f49456df2281"
+            ]
+        ]
+    },
+    {
+        "id": "16b9e081af924fc8",
+        "type": "change",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "scheduleTime",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 1340,
+        "wires": [
+            [
+                "b4f2f49456df2281"
+            ]
+        ]
+    },
+    {
+        "id": "b4f2f49456df2281",
+        "type": "function",
+        "z": "0b4df18cfed5afb0",
+        "name": "function 10",
+        "func": "let isScheduled = global.get(\"isScheduled\");\nlet scheduleDate = global.get(\"scheduleDate\");\nlet scheduleTime = global.get(\"scheduleTime\");\n\nif (isScheduled && scheduleDate && scheduleTime) {\n    let schedule = scheduleDate + scheduleTime;\n    if (Date.now() > schedule) {\n        return {\n            payload: \"OLDER\"\n        }\n    }\n    else {\n        return {\n            payload: schedule\n        }\n    }\n}\nelse if (isScheduled === false) {\n    return {\n        payload: \"NOT-SCHEDULED-ON\"\n    }\n}\nelse {\n    return {\n        payload: null\n    }\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 1260,
+        "wires": [
+            [
+                "94513164210c9763"
+            ]
+        ]
+    },
+    {
+        "id": "94513164210c9763",
+        "type": "switch",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "NOT-SCHEDULED-ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OLDER",
+                "vt": "str"
+            },
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 950,
+        "y": 1260,
+        "wires": [
+            [
+                "82176c5e145e39f1"
+            ],
+            [
+                "27094db8492fef0c"
+            ],
+            [
+                "78daf8e1a67248e5"
+            ],
+            [
+                "3582acc934fbb2cd"
+            ]
+        ]
+    },
+    {
+        "id": "af75be0dd7dcba28",
+        "type": "debug",
+        "z": "0b4df18cfed5afb0",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1400,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "82176c5e145e39f1",
+        "type": "function",
+        "z": "0b4df18cfed5afb0",
+        "name": "function 11",
+        "func": "return{\n    payload:\"NOT\"\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 1220,
+        "wires": [
+            [
+                "af75be0dd7dcba28",
+                "97225d7feb56b5ef"
+            ]
+        ]
+    },
+    {
+        "id": "78daf8e1a67248e5",
+        "type": "function",
+        "z": "0b4df18cfed5afb0",
+        "name": "function 12",
+        "func": "return{\n    payload:Math.round(msg.payload/1000),\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 1260,
+        "wires": [
+            [
+                "af75be0dd7dcba28",
+                "97225d7feb56b5ef"
+            ]
+        ]
+    },
+    {
+        "id": "27094db8492fef0c",
+        "type": "function",
+        "z": "0b4df18cfed5afb0",
+        "name": "function 13",
+        "func": "\nreturn{\n    payload:\"Please enter a future time\"\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 1300,
+        "wires": [
+            [
+                "baf4bf6e85f0a72a"
+            ]
+        ]
+    },
+    {
+        "id": "baf4bf6e85f0a72a",
+        "type": "ui_toast",
+        "z": "0b4df18cfed5afb0",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1450,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "3582acc934fbb2cd",
+        "type": "function",
+        "z": "0b4df18cfed5afb0",
+        "name": "function 14",
+        "func": "\nreturn{\n    payload:\"Please enter valid date and time\"\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 1340,
+        "wires": [
+            [
+                "baf4bf6e85f0a72a"
+            ]
+        ]
+    },
+    {
+        "id": "97225d7feb56b5ef",
+        "type": "mqtt out",
+        "z": "0b4df18cfed5afb0",
+        "name": "",
+        "topic": "ENTC-ADMIN-SCH-ON",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9f7185f2adb0da",
+        "x": 1470,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "d828a5adb241e6e8",
+        "type": "mqtt in",
+        "z": "0b4df18cfed5afb0",
+        "name": "ESP-ON-OFF",
+        "topic": "ENTC-ADMIN-MAIN-ON-OFF-ESP",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3c9f7185f2adb0da",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1040,
+        "wires": [
+            [
+                "67f577e21fdf2a7a"
+            ]
+        ]
+    },
+    {
+        "id": "7cad038a2d77f4e2",
+        "type": "mqtt in",
+        "z": "0b4df18cfed5afb0",
+        "name": "SCH-ESP-ON",
+        "topic": "ENTC-ADMIN-SCH-ESP-ON",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3c9f7185f2adb0da",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1120,
+        "wires": [
+            [
+                "31971ef4377b9275"
+            ]
+        ]
+    },
+    {
+        "id": "31971ef4377b9275",
+        "type": "function",
+        "z": "0b4df18cfed5afb0",
+        "name": "function 15",
+        "func": "\nreturn {\n    payload: msg.payload === 1\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1140,
+        "wires": [
+            [
+                "3423fb56d1e64e61"
+            ]
+        ]
+    },
+    {
+        "id": "3c9f7185f2adb0da",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ea5951efc2b0a73b",
+        "type": "ui_group",
+        "name": "LDR",
+        "tab": "ea3341d25bcc4d7f",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e1ae60a1ee1b6161",
+        "type": "ui_group",
+        "name": "Servo_Motor",
+        "tab": "ea3341d25bcc4d7f",
+        "order": 2,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "67bcb1af6d357c00",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "ea3341d25bcc4d7f",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "908862467dc8e85a",
+        "type": "ui_group",
+        "name": "Main Switch",
+        "tab": "ea3341d25bcc4d7f",
+        "order": 6,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5f8e88bb7ffe709d",
+        "type": "ui_group",
+        "name": "Shedule",
+        "tab": "ea3341d25bcc4d7f",
+        "order": 7,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ea3341d25bcc4d7f",
+        "type": "ui_tab",
+        "name": "Medibox",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
